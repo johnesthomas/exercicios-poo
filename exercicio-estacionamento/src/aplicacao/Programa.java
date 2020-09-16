@@ -1,5 +1,7 @@
 package aplicacao;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Programa {
@@ -7,13 +9,16 @@ public class Programa {
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
-		
-		Estacionamento estacionamento = null;
-		
+
+		Estacionamento estacionamento = new Estacionamento();
+
+		List<Estacionamento> list = new ArrayList<>();
+
 		char caract = 0;
 
 		do {
-			System.out.println("(1)Cadastrar \n(2)Consultar \n(3)Ativar \n(4)Desativar \n(0)Sair \n----------------------------------- ");
+			System.out.println(
+					"(1)Cadastrar \n(2)Consultar \n(3)Ativar \n(4)Desativar \n(0)Sair \n----------------------------------- ");
 			int key = sc.nextInt();
 
 			switch (key) {
@@ -45,14 +50,19 @@ public class Programa {
 				System.out.print("hora franquia inicial: ");
 				int horaFranquiaInicial = sc.nextInt();
 				System.out.println();
-				
-				estacionamento = new Estacionamento(codigo, nome, cidade, vagas, situacao, valorInicial, valorAdicional,
-						horaFranquiaInicial);
+
+				list.add(new Estacionamento(codigo, nome, cidade, vagas, situacao, valorInicial, valorAdicional,
+						horaFranquiaInicial));
 
 				break;
 
 			case 2:
-				System.out.println("\n" + estacionamento + "\n");
+				
+				System.out.println();
+				for (Estacionamento estacionamento2 : list) {
+					System.out.println(estacionamento2 + "\n");
+				}
+				System.out.println();
 				break;
 
 			case 3:
@@ -71,7 +81,7 @@ public class Programa {
 					caract = sc.next().charAt(0);
 				}
 				break;
-			}			
+			}
 
 		} while (caract != 'n');
 
