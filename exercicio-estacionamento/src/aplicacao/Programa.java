@@ -51,16 +51,20 @@ public class Programa {
 				int horaFranquiaInicial = sc.nextInt();
 				System.out.println();
 
-				list.add(new Estacionamento(codigo, nome, cidade, vagas, situacao, valorInicial, valorAdicional,
-						horaFranquiaInicial));
+				list.add(estacionamento = new Estacionamento(codigo, nome, cidade, vagas, situacao, valorInicial,
+						valorAdicional, horaFranquiaInicial));
 
 				break;
 
 			case 2:
-				
+
 				System.out.println();
-				for (Estacionamento estacionamento2 : list) {
-					System.out.println(estacionamento2 + "\n");
+				if (list.isEmpty()) {
+					System.out.println("Não existe estacionamento cadastrado.");
+				} else {
+					for (Estacionamento estacacionamento : list) {
+						System.out.println(estacacionamento + "\n");
+					}
 				}
 				System.out.println();
 				break;

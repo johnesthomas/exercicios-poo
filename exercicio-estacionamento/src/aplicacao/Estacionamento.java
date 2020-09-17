@@ -86,21 +86,30 @@ public class Estacionamento {
 		return situacao;
 	}
 
-	public void ativar() {
-		if (situacao == true) {
-			System.out.println("Estacionamento já está ativado !!! \n");
+	public String ativar() {
+
+		String situacao = "";
+
+		if (this.situacao) {
+			situacao = "Estacionamento já está ativo.";
 		} else {
-			situacao = true;
+			this.situacao = true;
+			situacao = "Ativado com sucesso.";
 		}
+		return situacao;
 	}
 
-	public void desativar() {
-		if (situacao == false) {
-			System.out.println("Estacionamento já está desativado !!! \n");
-		} else {
-			situacao = false;
-		}
+	public String desativar() {
 
+		String situacao = "";
+
+		if (!this.situacao) {
+			situacao = "Estacionamento já está desativado.";
+		} else {
+			this.situacao = false;
+			situacao = "Desativado com sucesso.";
+		}
+		return situacao;
 	}
 
 	public String toString() {
@@ -111,7 +120,7 @@ public class Estacionamento {
 		} else {
 			situacaoStr = "ativado";
 		}
-		
+
 		return "Código: " + codigo + "\nNome: " + nome + "\nCidade: " + cidade + "\nVagas: " + vagas + "\nSituação: "
 				+ situacaoStr + "\nValor Inicial: " + String.format("%.2f", valorInicial) + "\nValor Adicional: "
 				+ String.format("%.2f", valorInicial) + "\nHora Franquia Inicial: " + horaFranquiaInicial;
