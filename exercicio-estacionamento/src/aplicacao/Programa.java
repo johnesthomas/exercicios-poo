@@ -39,8 +39,6 @@ public class Programa {
 				System.out.print("vagas: ");
 				int vagas = sc.nextInt();
 
-				boolean situacao = false;
-
 				System.out.print("valor inicial: ");
 				double valorInicial = sc.nextDouble();
 
@@ -51,30 +49,54 @@ public class Programa {
 				int horaFranquiaInicial = sc.nextInt();
 				System.out.println();
 
-				list.add(estacionamento = new Estacionamento(codigo, nome, cidade, vagas, situacao, valorInicial,
-						valorAdicional, horaFranquiaInicial));
+				list.add(estacionamento = new Estacionamento(codigo, nome, cidade, vagas, valorInicial, valorAdicional,
+						horaFranquiaInicial));
 
 				break;
 
 			case 2:
 
-				System.out.println();
 				if (list.isEmpty()) {
+					System.out.println();
+					System.out.println("#####################################");
 					System.out.println("Não existe estacionamento cadastrado.");
+					System.out.println("#####################################");
+					System.out.println();
 				} else {
-					for (Estacionamento estacacionamento : list) {
-						System.out.println(estacacionamento + "\n");
+
+					System.out.println();
+					System.out.println("Deseja consultar qual estacionamento ?");
+					System.out.print("Código: ");
+					codigo = sc.nextInt();
+
+					if (codigo == estacionamento.getCodigo()) {
+						for (Estacionamento estacacionamento : list) {
+							System.out.println(estacacionamento + "\n");
+						}
+					} else {
+						System.out.println("Estacionamento não encontrado");
 					}
+
+					System.out.println();
 				}
-				System.out.println();
 				break;
 
-			case 3:
-				estacionamento.ativar();
+			case 3: // ativar estacionamento
+
+				if (!estacionamento.getSituacao()) {
+					estacionamento.ativar();
+				} else {
+					System.out.println("Estacionamento já está ativado");
+				}
 				break;
 
-			case 4:
-				estacionamento.desativar();
+			case 4: // desativar estacionamento
+
+				if (estacionamento.getSituacao()) {
+					estacionamento.desativar();
+				} else {
+					System.out.println("Estacionamento já está desativado");
+				}
 				break;
 
 			default:

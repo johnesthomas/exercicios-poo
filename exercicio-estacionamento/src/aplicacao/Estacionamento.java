@@ -6,7 +6,7 @@ public class Estacionamento {
 	private String nome;
 	private String cidade;
 	private Integer vagas;
-	private Boolean situacao;
+	private Boolean situacao = false;
 	private Double valorInicial;
 	private Double valorAdicional;
 	private Integer horaFranquiaInicial;
@@ -14,13 +14,12 @@ public class Estacionamento {
 	public Estacionamento() {
 	}
 
-	public Estacionamento(Integer codigo, String nome, String cidade, Integer vagas, Boolean situacao,
-			Double valorInicial, Double valorAdicional, Integer horaFranquiaInicial) {
+	public Estacionamento(Integer codigo, String nome, String cidade, Integer vagas, Double valorInicial,
+			Double valorAdicional, Integer horaFranquiaInicial) {
 		this.codigo = codigo;
 		this.nome = nome;
 		this.cidade = cidade;
 		this.vagas = vagas;
-		this.situacao = situacao;
 		this.valorInicial = valorInicial;
 		this.valorAdicional = valorAdicional;
 		this.horaFranquiaInicial = horaFranquiaInicial;
@@ -86,30 +85,12 @@ public class Estacionamento {
 		return situacao;
 	}
 
-	public String ativar() {
-
-		String situacao = "";
-
-		if (this.situacao) {
-			situacao = "Estacionamento já está ativo.";
-		} else {
-			this.situacao = true;
-			situacao = "Ativado com sucesso.";
-		}
-		return situacao;
+	public void ativar() {
+		this.situacao = true;
 	}
 
-	public String desativar() {
-
-		String situacao = "";
-
-		if (!this.situacao) {
-			situacao = "Estacionamento já está desativado.";
-		} else {
-			this.situacao = false;
-			situacao = "Desativado com sucesso.";
-		}
-		return situacao;
+	public void desativar() {
+		this.situacao = false;
 	}
 
 	public String toString() {
