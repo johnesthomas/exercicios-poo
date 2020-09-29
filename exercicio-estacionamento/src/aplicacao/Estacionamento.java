@@ -93,7 +93,7 @@ public class Estacionamento {
 		this.situacao = false;
 	}
 
-	public String toString() {
+	/*public String toString() {
 
 		String situacaoStr;
 		if (situacao == false) {
@@ -106,5 +106,5 @@ public class Estacionamento {
 				+ situacaoStr + "\nValor Inicial: " + String.format("%.2f", valorInicial) + "\nValor Adicional: "
 				+ String.format("%.2f", valorInicial) + "\nHora Franquia Inicial: " + horaFranquiaInicial;
 
-	}
+	}*/
 }

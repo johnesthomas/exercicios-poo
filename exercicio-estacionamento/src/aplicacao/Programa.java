@@ -6,23 +6,30 @@ import java.util.Scanner;
 
 public class Programa {
 
+	static Estacionamento estacionamento = new Estacionamento();
+
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
-
-		Estacionamento estacionamento = new Estacionamento();
 
 		List<Estacionamento> list = new ArrayList<>();
 
 		char caract = 0;
 
 		do {
-			System.out.println(
-					"(1)Cadastrar \n(2)Consultar \n(3)Ativar \n(4)Desativar \n(0)Sair \n----------------------------------- ");
+			System.out.println("----------------");
+			System.out.println("(1)Cadastra ");
+			System.out.println("(2)Consultar");
+			System.out.println("(3)Ativar");
+			System.out.println("(4)Desativar");
+			System.out.println("(0)Sair");
+			System.out.println("----------------");
+
 			int key = sc.nextInt();
 
 			switch (key) {
-			case 1:
+			
+			case 1: // cadastrar estacionamento
 
 				System.out.println("Insira os dados para cadastrar estacionamento: ");
 
@@ -54,7 +61,7 @@ public class Programa {
 
 				break;
 
-			case 2:
+			case 2: // consultar estacionamento
 
 				if (list.isEmpty()) {
 					System.out.println();
@@ -62,6 +69,7 @@ public class Programa {
 					System.out.println("Não existe estacionamento cadastrado.");
 					System.out.println("#####################################");
 					System.out.println();
+
 				} else {
 
 					System.out.println();
@@ -69,12 +77,16 @@ public class Programa {
 					System.out.print("Código: ");
 					codigo = sc.nextInt();
 
-					if (codigo == estacionamento.getCodigo()) {
-						for (Estacionamento estacacionamento : list) {
-							System.out.println(estacacionamento + "\n");
+					for (Estacionamento estacionamento : list) {
+
+						if (codigo == estacionamento.getCodigo()) {
+
+							imprimirEstacionamento(estacionamento);
+							
+						} else {
+
+							System.out.println("Estacionamento não encontrado");
 						}
-					} else {
-						System.out.println("Estacionamento não encontrado");
 					}
 
 					System.out.println();
@@ -99,7 +111,7 @@ public class Programa {
 				}
 				break;
 
-			default:
+			default: // opção default, encerrar ou retornar ao programa
 				if (key == 0) {
 					caract = 'n';
 				} else {
@@ -112,5 +124,17 @@ public class Programa {
 		} while (caract != 'n');
 
 		sc.close();
+	}
+	
+	public static void imprimirEstacionamento(Estacionamento estacionamento) {
+		System.out.println();
+		System.out.println("Código: " + estacionamento.getCodigo());
+		System.out.println("Nome: " + estacionamento.getNome());
+		System.out.println("Cidade: " + estacionamento.getCidade());
+		System.out.println("Vagas: " + estacionamento.getVagas());
+		System.out.println("Situação: " + estacionamento.getSituacao());
+		System.out.printf("Valor Inicial: %.2f%n",(estacionamento.getValorInicial()));
+		System.out.printf("Valor Adicional: %.2f%n",(estacionamento.getValorAdicional()));
+		System.out.println("Hora Franquia Inicial: " + estacionamento.getHoraFranquiaInicial());		
 	}
 }
