@@ -29,56 +29,28 @@ public class Estacionamento {
 		return codigo;
 	}
 
-	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
-	}
-
 	public String getNome() {
 		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
 	}
 
 	public String getCidade() {
 		return cidade;
 	}
 
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
-
 	public Integer getVagas() {
 		return vagas;
-	}
-
-	public void setVagas(Integer vagas) {
-		this.vagas = vagas;
 	}
 
 	public Double getValorInicial() {
 		return valorInicial;
 	}
 
-	public void setValorInicial(Double valorInicial) {
-		this.valorInicial = valorInicial;
-	}
-
 	public Double getValorAdicional() {
 		return valorAdicional;
 	}
 
-	public void setValorAdicional(Double valorAdicional) {
-		this.valorAdicional = valorAdicional;
-	}
-
 	public Integer getHoraFranquiaInicial() {
 		return horaFranquiaInicial;
-	}
-
-	public void setHoraFranquiaInicial(Integer horaFranquiaInicial) {
-		this.horaFranquiaInicial = horaFranquiaInicial;
 	}
 
 	public Boolean getSituacao() {
@@ -92,19 +64,4 @@ public class Estacionamento {
 	public void desativar() {
 		this.situacao = false;
 	}
-
-	/*public String toString() {
-
-		String situacaoStr;
-		if (situacao == false) {
-			situacaoStr = "desativado";
-		} else {
-			situacaoStr = "ativado";
-		}
-
-		return "Código: " + codigo + "\nNome: " + nome + "\nCidade: " + cidade + "\nVagas: " + vagas + "\nSituação: "
-				+ situacaoStr + "\nValor Inicial: " + String.format("%.2f", valorInicial) + "\nValor Adicional: "
-				+ String.format("%.2f", valorInicial) + "\nHora Franquia Inicial: " + horaFranquiaInicial;
-
-	}*/
 }

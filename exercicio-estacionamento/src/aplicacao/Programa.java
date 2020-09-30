@@ -28,7 +28,7 @@ public class Programa {
 			int key = sc.nextInt();
 
 			switch (key) {
-			
+
 			case 1: // cadastrar estacionamento
 
 				System.out.println("Insira os dados para cadastrar estacionamento: ");
@@ -78,13 +78,10 @@ public class Programa {
 					codigo = sc.nextInt();
 
 					for (Estacionamento estacionamento : list) {
-
 						if (codigo == estacionamento.getCodigo()) {
-
 							imprimirEstacionamento(estacionamento);
-							
-						} else {
 
+						} else {
 							System.out.println("Estacionamento não encontrado");
 						}
 					}
@@ -95,19 +92,43 @@ public class Programa {
 
 			case 3: // ativar estacionamento
 
-				if (!estacionamento.getSituacao()) {
-					estacionamento.ativar();
-				} else {
-					System.out.println("Estacionamento já está ativado");
+				System.out.println("Deseja ativar qual estacionamento ?");
+				System.out.print("Código: ");
+				codigo = sc.nextInt();
+
+				for (Estacionamento estacionamento : list) {
+					if (codigo == estacionamento.getCodigo()) {
+						if (!estacionamento.getSituacao()) {
+							estacionamento.ativar();
+							break;
+
+						} else {
+							System.out.println("Estacionamento já está ativado");
+						}
+					} else {
+						System.out.println("Estacionamento não encontrado");
+					}
 				}
 				break;
 
 			case 4: // desativar estacionamento
+				
+				System.out.println("Deseja desativar qual estacionamento ?");
+				System.out.print("Código: ");
+				codigo = sc.nextInt();
 
-				if (estacionamento.getSituacao()) {
-					estacionamento.desativar();
-				} else {
-					System.out.println("Estacionamento já está desativado");
+				for (Estacionamento estacionamento : list) {
+					if (codigo == estacionamento.getCodigo()) {
+						if (estacionamento.getSituacao()) {
+							estacionamento.desativar();
+							break;
+
+						} else {
+							System.out.println("Estacionamento já está desativado");
+						}
+					} else {
+						System.out.println("Estacionamento não encontrado");
+					}
 				}
 				break;
 
@@ -125,16 +146,23 @@ public class Programa {
 
 		sc.close();
 	}
-	
+
 	public static void imprimirEstacionamento(Estacionamento estacionamento) {
+		String situacao = "";
+		if(estacionamento.getSituacao()) {
+			situacao = "Ativado";
+		} else {
+			situacao = "Desativado";
+		}
+		
 		System.out.println();
 		System.out.println("Código: " + estacionamento.getCodigo());
 		System.out.println("Nome: " + estacionamento.getNome());
 		System.out.println("Cidade: " + estacionamento.getCidade());
 		System.out.println("Vagas: " + estacionamento.getVagas());
-		System.out.println("Situação: " + estacionamento.getSituacao());
-		System.out.printf("Valor Inicial: %.2f%n",(estacionamento.getValorInicial()));
-		System.out.printf("Valor Adicional: %.2f%n",(estacionamento.getValorAdicional()));
-		System.out.println("Hora Franquia Inicial: " + estacionamento.getHoraFranquiaInicial());		
+		System.out.println("Situação: " + situacao);
+		System.out.printf("Valor Inicial: %.2f%n", (estacionamento.getValorInicial()));
+		System.out.printf("Valor Adicional: %.2f%n", (estacionamento.getValorAdicional()));
+		System.out.println("Hora Franquia Inicial: " + estacionamento.getHoraFranquiaInicial());
 	}
 }
