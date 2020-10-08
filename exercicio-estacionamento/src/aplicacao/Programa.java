@@ -161,8 +161,8 @@ public class Programa {
 		System.out.println("Cidade: " + estacionamento.getCidade());
 		System.out.println("Vagas: " + estacionamento.getVagas());
 		System.out.println("Situação: " + situacao);
-		System.out.printf("Valor Inicial: %.2f%n", (estacionamento.getValorInicial()));
-		System.out.printf("Valor Adicional: %.2f%n", (estacionamento.getValorAdicional()));
+		System.out.printf("Valor Inicial: %.2f%n", estacionamento.getValorInicial());
+		System.out.printf("Valor Adicional: %.2f%n", estacionamento.getValorAdicional());
 		System.out.println("Hora Franquia Inicial: " + estacionamento.getHoraFranquiaInicial());
 	}
 }
