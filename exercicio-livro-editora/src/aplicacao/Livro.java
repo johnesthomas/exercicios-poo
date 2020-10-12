@@ -1,14 +1,16 @@
 package aplicacao;
 
+import java.util.List;
+
 public class Livro {
 	
 	private int codigo;
 	private String titulo;
 	private String ISBN;
 	private Editora editora;
-	private Autor[] autores;
+	private List<Autor> autores;
 
-	public Livro(int codigo, String titulo, String iSBN, Editora editora, Autor[] autores) {
+	public Livro(int codigo, String titulo, String iSBN, Editora editora, List<Autor> autores) {
 		this.codigo = codigo;
 		this.titulo = titulo;
 		this.ISBN = iSBN;
@@ -35,7 +37,7 @@ public class Livro {
 		return editora;
 	}
 
-	public Autor[] getAutores() {
+	public List<Autor> getAutores() {
 		return autores;
 	}
 }
