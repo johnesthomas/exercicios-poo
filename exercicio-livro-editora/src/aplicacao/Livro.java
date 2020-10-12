@@ -1,18 +1,22 @@
 package aplicacao;
 
 public class Livro {
-
+	
 	private int codigo;
 	private String titulo;
 	private String ISBN;
 	private Editora editora;
+	private Autor[] autores;
 
-	public Livro(int codigo, String titulo, String iSBN, Editora editora) {
-		super();
+	public Livro(int codigo, String titulo, String iSBN, Editora editora, Autor[] autores) {
 		this.codigo = codigo;
 		this.titulo = titulo;
-		ISBN = iSBN;
+		this.ISBN = iSBN;
 		this.editora = editora;
+		this.autores = autores;
+	}
+
+	public Livro() {		
 	}
 
 	public int getCodigo() {
@@ -29,5 +33,9 @@ public class Livro {
 
 	public Editora getEditora() {
 		return editora;
+	}
+
+	public Autor[] getAutores() {
+		return autores;
 	}
 }

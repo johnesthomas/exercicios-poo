@@ -8,7 +8,6 @@ public class Editora {
 	private String telefone;
 
 	public Editora(int codigo, String razaoSocial, String contato, String telefone) {
-		super();
 		this.codigo = codigo;
 		this.razaoSocial = razaoSocial;
 		this.contato = contato;
