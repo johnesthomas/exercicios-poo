@@ -20,8 +20,8 @@ public class Programa {
 
 		Scanner sc = new Scanner(System.in);
 
-		Elevador elevador1 = new Elevador(1, 1, false, false);
-		Elevador elevador2 = new Elevador(2, 1, false, false);
+		Elevador elevador1 = new Elevador(1);
+		Elevador elevador2 = new Elevador(2);
 
 		/*------------------------ATIVAR------------------------*/
 		System.out.println("Ligar elevador: ");
@@ -33,14 +33,14 @@ public class Programa {
 			if (elevador2.isLigado()) {
 				System.out.println("Elevador já estar ligado.");
 			} else {
-				elevador1.ligar();
+				elevador1.ligarDesligar();
 			}
 		} else {
 
 			if (elevador2.isLigado()) {
 				System.out.println("Elevador já estar ligado.");
 			} else {
-				elevador2.ligar();
+				elevador2.ligarDesligar();
 			}
 		}
 		/*-------------------------------------------------------*/
@@ -56,14 +56,14 @@ public class Programa {
 			if (!elevador2.isLigado()) {
 				System.out.println("Elevador já estar desligado.");
 			} else {
-				elevador1.desligar();
+				elevador1.ligarDesligar();
 			}
 		} else {
 
 			if (!elevador2.isLigado()) {
 				System.out.println("Elevador já estar desligado.");
 			} else {
-				elevador2.desligar();
+				elevador2.ligarDesligar();
 			}
 		}
 

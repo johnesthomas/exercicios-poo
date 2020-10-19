@@ -7,12 +7,8 @@ public class Elevador {
 	private boolean ligado;
 	private boolean prioritario;
 
-	public Elevador(int id, int andarAtual, boolean ligado, boolean prioritario) {
-
+	public Elevador(int id) {
 		this.id = id;
-		this.andarAtual = andarAtual;
-		this.ligado = ligado;
-		this.prioritario = prioritario;
 	}
 
 	public int getId() {
@@ -31,12 +27,8 @@ public class Elevador {
 		return prioritario;
 	}
 
-	public void ligar() {
-		this.ligado = true;
-	}
-
-	public void desligar() {
-		this.ligado = false;
+	public void ligarDesligar() {
+		this.ligado = !this.ligado;
 	}
 
 	public void ativarPrioridade() {
@@ -48,7 +40,15 @@ public class Elevador {
 	}
 
 	public float calcularEsforco(int andarDestino) {
-		return andarDestino;
+		float esforco = 0;
+		
+		if(this.andarAtual < andarDestino) {
+			//subir
+			esforco = (andarDestino - andarAtual) * 1.25f;
+		} else if (this.andarAtual > andarDestino){
+			//descer
+			esforco = andarAtual - andarDestino;
+		}		
+		return esforco;
 	}
-
 }
