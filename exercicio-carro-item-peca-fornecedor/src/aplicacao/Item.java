@@ -10,12 +10,14 @@ public class Item {
 	private List<Peca> peca;
 	private List<Fornecedor> fornecedorPeca;
 	private double valorItem = (quantidade * precoUnitario);
-	
-	public Item(int quantidade, String cor, double precoUnitario) {
+
+	public Item(int quantidade, String cor, double precoUnitario, List<Peca> peca, List<Fornecedor> fornecedorPeca) {
 		super();
 		this.quantidade = quantidade;
 		this.cor = cor;
-		this.precoUnitario = precoUnitario;		
+		this.precoUnitario = precoUnitario;
+		this.peca = peca;
+		this.fornecedorPeca = fornecedorPeca;
 	}
 
 	public int getQuantidade() {
@@ -60,5 +62,5 @@ public class Item {
 
 	public double getValorItem() {
 		return valorItem;
-	}	
+	}
 }

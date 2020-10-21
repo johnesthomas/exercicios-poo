@@ -38,8 +38,7 @@ public class Programa {
 		listCarros.add(carro1);
 		listCarros.add(carro2);
 
-		
-		//INSERIR ITENS A UMA LISTA DE ITENS
+		// INSERIR ITENS A UMA LISTA DE ITENS
 		ArrayList<Item> listItens = new ArrayList<Item>();
 
 		boolean situacao = false;
@@ -56,7 +55,7 @@ public class Programa {
 			System.out.print("Preço do(s) Item(ns): ");
 			double precoUnitario = sc.nextDouble();
 
-			listItens.add(new Item(quantidade, cor, precoUnitario));
+			listItens.add(new Item(quantidade, cor, precoUnitario, listPecas, listFornecedores));
 
 			System.out.println("continuar(s/n) ?");
 			char condicao = sc.next().charAt(0);
@@ -67,20 +66,20 @@ public class Programa {
 				situacao = false;
 			}
 		} while (situacao);
-		
-		//INSERIR LISTA DE ITENS EM UM CARRO
-		System.out.print("Chassi para atribuir itens: ");		
+
+		// INSERIR LISTA DE ITENS EM UM CARRO
+		System.out.print("Chassi para atribuir itens: ");
+		sc.nextLine();
 		String chassi = sc.nextLine();
-		
+
 		for (Carro carro : listCarros) {
-			if(chassi == carro.getChassi()) {
+			if (carro.getChassi().equals(chassi)) {
 				carro.setItem(listItens);
+				break;
 			} else {
 				System.out.println("Carro não existe na lista !");
 			}
 		}
-		
-	
-
+		sc.close();
 	}
 }
