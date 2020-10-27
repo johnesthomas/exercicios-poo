@@ -49,12 +49,12 @@ public class Programa {
 
 						leitura = new Leitura(imovel, leituraAtual, dataLeitura);
 
-						//System.out.println("Ultima Leitura: " + imovel.getUltimaLeitura());
+						
 						imovel.calcularConsumo(leituraAtual);
-						//System.out.println("Consumo: " + imovel.getConsumo());
+						
 
 						imovel.calcularConta();
-						//System.out.println("Valor da conta: " + imovel.getValorConta());
+						
 
 						leitura.registrarLeitura(); // atualiza o atributo ultimaLeitura do imovel
 
@@ -70,8 +70,7 @@ public class Programa {
 				break;
 
 			case 2:
-
-				//Leitura leitura = new Leitura();
+				
 				System.out.print("Informe ID do imóvel: ");
 				System.out.println();
 				idImovel = sc.nextInt();
