@@ -44,4 +44,8 @@ public class Edicao {
 	public int qtdeRecicladas() {
 		return tiragem - vendidas;
 	}
+	
+	public void atualizarReciclagem() {
+		this.reciclagemAtualizada = true;
+	}
 }

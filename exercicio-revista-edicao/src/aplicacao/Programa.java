@@ -115,7 +115,7 @@ public class Programa {
 						if (edicoes[0].getNum() == num) {
 							System.out.println("Qnt recicladas: " + edicoes[0].qtdeRecicladas());
 							revista.incrementarReciclagemProduzida(edicoes[0].qtdeRecicladas());
-							edicoes[0].isReciclagemAtualizada();
+							edicoes[0].atualizarReciclagem();
 						}
 
 					} else {
@@ -129,6 +129,7 @@ public class Programa {
 			case 5:
 
 				// DESTRUIR REVISTA
+				
 				System.out.print("Código da revista a ser destruida: ");
 				codigo = sc.nextInt();
 
