@@ -97,7 +97,7 @@ public class Programa {
 				break;
 			}
 			System.out.println("----------------------");
-			System.out.print("Deseja continaur(s/n) ?: ");
+			System.out.print("Deseja continuar(s/n) ?: ");
 			char condicao = sc.next().charAt(0);
 			System.out.println("----------------------");
 
